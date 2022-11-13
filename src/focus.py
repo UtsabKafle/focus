@@ -32,18 +32,19 @@ class focus:
 
 	def ask(self):
 		self.speak("Session over")
-		self.speak("Did you completed your task")
+		self.speak(f"Did you completed your task : {self.work}")
 		done = input("y/n :: ")
 		if "y" in done:
-			self.speak("Great man. Keep going.")
+			self.speak("Well done. Keep going.")
 		if "n" in done:
-			self.speak("what the fuck are you doing bro")
-			self.speak("Someone, somewhere has been working hard the whole time you just wasted.")
-		with open('db.txt','a+') as db:
-			db.write(f"{self.duration} minutes => {self.work} \n")
+			self.speak("It is a shame for a man to grow old,")
+			self.speak(" without seeing the beauty and strength his body")
+			self.speak(" and knowledge and wisdom which his mind is capable of.")
+		with open('focus_logs.txt','a+') as db:
+			db.write(f"{str(time.asctime()) + ' ~ ' + str(self.duration)} minutes => {self.work} \n")
 
 	def bye(self):
-		self.speak("Work. Crush it. Dominate everything.")
+		self.speak("Keep working. Keep crushing.")
 
 
 	def alarm(self):

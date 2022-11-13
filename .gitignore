@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
+/focus_logs.txt
+/db.txt
+
 # C extensions
 *.so
 

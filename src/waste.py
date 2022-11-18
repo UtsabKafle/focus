@@ -1,12 +1,13 @@
 import pyttsx3
 import time
 import sys
-
-
+import pynput
+from pynput.keyboard import Controller, Key
 engine = pyttsx3.init()
 
+keyboard = Controller()
 
-class focus:
+class waste:
 	def __init__(self,duration=None,work=None):
 		self.mins = round(time.monotonic())
 		self.duration = float(duration)
@@ -14,7 +15,7 @@ class focus:
 		self.end = self.mins+(60*self.duration)
 		self.work = work
 		self.speak("Session started !")
-		self.speak(f"Crush it.")
+		self.speak(f"use it wisely.")
  
 
 	def get_time(self):
@@ -31,18 +32,23 @@ class focus:
 		engine.runAndWait()
 
 	def ask(self):
-		self.speak("Session over")
-		self.speak(f"Did you completed your task : {self.work}")
-		done = input("y/n :: ")
-		if "y" in done:
-			self.speak("great")
-		if "n" in done:
-			self.speak("Hard choices, easy life. Easy choices, hard life.")
-		with open('focus_logs.txt','a+') as db:
+		with open('waste_logs.txt','a+') as db:
 			db.write(f"{str(time.asctime()) + ' ~ ' + str(self.duration)} minutes => {self.work} \n")
 
+	def quit_(self):
+		with keyboard.pressed(Key.alt):
+			keyboard.press(Key.f4)
+			keyboard.release(Key.f4)
+
+	def enter(self):
+		keyboard.press(Key.enter)
+
 	def bye(self):
-		self.speak("Keep working. Keep crushing.")
+		self.quit_()
+		self.quit_()
+		self.enter()
+		self.speak("done.")
+		self.speak("Start working.")
 
 
 	def alarm(self):
@@ -59,12 +65,9 @@ class focus:
 				self.alarm()
 		
 
-
-
-
 def main():
 	# print()
-	a = focus(sys.argv[1],sys.argv[2])
+	a = waste(sys.argv[1],sys.argv[2])
 	a.alarm()
 
 

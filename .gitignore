@@ -6,7 +6,7 @@ __pycache__/
 
 /focus_logs.txt
 /db.txt
-
+/waste_logs.txt
 # C extensions
 *.so
 

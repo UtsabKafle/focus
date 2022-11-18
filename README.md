@@ -16,4 +16,4 @@ eg:
 the date and work you do will be written in a file called focus_logs.txt.
 	Sun Nov 13 07:02:26 2022 ~ 13.1 minutes => prepared for entrance 
 
-plus: I have attached a quote to remind myself to work. This might feel little cringy but F-it.
+plus: I have attached a quote to remind myself to work if I entered 'n' at the end. This might feel little cringy but F-it.
